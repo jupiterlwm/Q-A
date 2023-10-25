@@ -82,3 +82,9 @@ public class RestfulWebConfig implements WebMvcConfigurer
   }
 }
 ~~~
+### Exception for controller
+/**
+ * Restful exception Handler
+
+@ControllerAdvice
+public class ApiExceptionHandler 
