@@ -54,3 +54,31 @@ getPartByNum(
 	@Size(min = 0,max = 10,message ="Value for id parameter exceeds 10 characters")
 	String source) throws Exception
 ~~~
+
+### @Repository for DAO
+@Autowired
+    protected JdbcTemplate jdbcTemplate;
+
+### public class AuthenticationInterceptor implements HandlerInterceptor 
+
+### add authorization and interceptor
+~~~
+@Configuration
+public class RestfulWebConfig implements WebMvcConfigurer 
+{
+	@Bean
+    public AuthenticationInterceptor authenticationInterceptor(){
+        return new AuthenticationInterceptor();
+    }
+	
+  @Override
+  public void addInterceptors(InterceptorRegistry registry) {
+    // 
+    registry.addInterceptor(authenticationInterceptor())
+    						.addPathPatterns("/**")
+	    					.excludePathPatterns("/**/*.css", 
+				            "/**/*.js", "/**/*.png", "/**/*.jpg", 
+				            "/**/*.jpeg", "/**/*.gif", "/**/*.yaml");
+  }
+}
+~~~
