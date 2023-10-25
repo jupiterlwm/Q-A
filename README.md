@@ -83,8 +83,23 @@ public class RestfulWebConfig implements WebMvcConfigurer
 }
 ~~~
 ### Exception for controller
+~~~
 /**
  * Restful exception Handler
 
 @ControllerAdvice
 public class ApiExceptionHandler 
+
+	@ExceptionHandler(MissingServletRequestParameterException.class)
+	@ResponseBody
+	public ResponseEntity<ErrorResponse> handleMissingParams(MissingServletRequestParameterException e) 
+	{
+	    String name = e.getParameterName();
+		logger.warn("MissingServletRequestParameterException " + name,e.getMessage());			
+//		MissingScheduleException missingScheduleEx = null;//new MissingScheduleException();
+		ErrorResponse errorResponse = new ErrorResponse();
+		errorResponse.addErrorsItem(new Error().code(null).message(null));		
+		ResponseEntity<ErrorResponse> responseEntity = new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.BAD_REQUEST);			
+		return responseEntity;
+	}
+~~~
