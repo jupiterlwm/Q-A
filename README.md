@@ -34,23 +34,23 @@ it is for entitymanager in JPA, not sprint annoation, normally we can not use au
 ### RestController/Controller
 ### @CrossOrigin
 ### @Validated
----
+~~~
 getParts(			
-												@RequestParam(value="part_num",required = true)
-												@NotNull(message ="The part_num parameter was not supplied with a value.")
-												@Size(min = 1,message ="The part_num parameter was not supplied with a value.")
-												String partNum,
+	@RequestParam(value="part_num",required = true)
+	@NotNull(message ="The part_num parameter was not supplied with a value.")
+	Size(min = 1,message ="The part_num parameter was not supplied with a value.")
+	String partNum,
 												
-												@RequestParam(value="source",required = false) 
-												@Size(min = 0,max = 10,message ="Value for id parameter exceeds 10 characters")
-												String source)
----
+	@RequestParam(value="source",required = false) 
+	@Size(min = 0,max = 10,message ="Value for id parameter exceeds 10 characters")
+	String source)
 getPartByNum(			
-												@PathVariable(value="part_num",required = true)
-												@NotNull(message ="The part_num parameter was not supplied with a value.")
-												@Size(min = 1,message ="The part_num parameter was not supplied with a value.")
-												String partNum,
+	@PathVariable(value="part_num",required = true)
+	@NotNull(message ="The part_num parameter was not supplied with a value.")
+	@Size(min = 1,message ="The part_num parameter was not supplied with a value.")
+	String partNum,
 												
-												@RequestParam(value="source",required = false) 
-												@Size(min = 0,max = 10,message ="Value for id parameter exceeds 10 characters")
-												String source) throws Exception
+	@RequestParam(value="source",required = false) 
+	@Size(min = 0,max = 10,message ="Value for id parameter exceeds 10 characters")
+	String source) throws Exception
+~~~
