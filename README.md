@@ -1,7 +1,7 @@
 # Q-A
 it is used to remember how to answer some questions
 
-## Annoations in Java
+## Annotations in Java
 ### @Named 
  normally it is used to name a beans that have the same interface, so that when we want to inject the bean, we can use the name as reference.
 @Named("accountDetail")
@@ -16,6 +16,7 @@ it is for entitymanager in JPA, not sprint annoation, normally we can not use au
 ### @UserToken("domo")
 ### @Resource(name = "domo-api-uri", lookup = "app/domo-api-uri")
 
+### AspectJ - CGLIB
 
 ### @PostConstruct - aspect?
 ### @PreDestroy
